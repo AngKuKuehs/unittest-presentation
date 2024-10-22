@@ -13,7 +13,7 @@ Provides:
 # Set-Up
 Clone the repository:
 ```bash
-git clone 
+git clone git@github.com:AngKuKuehs/unittest-presentation.git
 ```
 
 Create virtual environment and install dependencies:
