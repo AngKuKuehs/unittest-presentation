@@ -17,10 +17,10 @@ class TestEmployee(unittest.TestCase):
     # def tearDownClass(cls):
     #     return super().tearDownClass()
 
-    # def setUp(self):
-    #     self.emp_1 = Employee("John", "Ang", "johnang@email.com", 5000)
-    #     self.emp_2 = Employee("Sean", "Ong", "seanong@email.com", 6000)
-    #     self.emp_3 = Employee("Ryan", "Tan", "ryantan@email.com", 7000)
+    def setUp(self):
+        self.emp_1 = Employee("John", "Ang", "johnang@email.com", 5000)
+        self.emp_2 = Employee("Sean", "Ong", "seanong@email.com", 6000)
+        self.emp_3 = Employee("Ryan", "Tan", "ryantan@email.com", 7000)
     
     # def tearDown(self):
     #     pass
@@ -93,8 +93,7 @@ class TestEmployee(unittest.TestCase):
     #     response = requests.get(f"http://0.0.0.0:5005/get-sched?name={self.emp_1.last_name}")
 
     #     with patch('Employee.requests.get') as mocked_get:
-    #         mocked_get.return_value.ok = response.ok
-    #         mocked_get.return_value.text = response.text
+    #         mocked_get.return_value = response
 
     #         schedule = self.emp_1.get_schedule()
 
