@@ -19,6 +19,7 @@ class TestTriangleFunctions(unittest.TestCase):
     def test_equilateral_triangle(self):
         "Test case for equilateral triangle"
         self.assertEqual(type_of_triangle(5, 5, 5), "Equilateral")
+        # self.assertEqual(type_of_triangle(5, 4, 5), "Equilateral")
 
     def test_isosceles_triangle(self):
         "Test cases for isosceles triangles"
@@ -35,6 +36,7 @@ class TestTriangleFunctions(unittest.TestCase):
         "Test that an invalid triangle raises a ValueError"
 
         self.assertRaises(ValueError, type_of_triangle, 1, 1, 3)
+        # self.assertRaises(KeyError, type_of_triangle, 1, 1, 3)
 
         with self.assertRaises(ValueError):
             type_of_triangle(0, 1, 1)

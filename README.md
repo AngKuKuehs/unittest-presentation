@@ -1,10 +1,12 @@
-# unittest
+# Python's unittest Library
 
 Part of Python's standard library
 
 Can be used as a test driver to run all the tests in the python standard library `python -m unittest discover test -v`
 
-Provides:
+It is a clean and minimal yet sufficient testing framework that provides flexibilty.
+
+Features:
 - Test cases
 - Test fixtures
 - Test runner
@@ -35,4 +37,5 @@ python -m unittest discover tests -v
 
 # Credits
 Parts of the repository is adapted from https://github.com/CoreyMSchafer/code_snippets/tree/master/Python-Unit-Testing
+
 unittest documentation: https://docs.python.org/3/library/unittest.html 

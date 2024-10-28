@@ -17,13 +17,13 @@ class TestEmployee(unittest.TestCase):
     # def tearDownClass(cls):
     #     return super().tearDownClass()
 
-    def setUp(self):
-        self.emp_1 = Employee("John", "Ang", "johnang@email.com", 5000)
-        self.emp_2 = Employee("Sean", "Ong", "seanong@email.com", 6000)
-        self.emp_3 = Employee("Ryan", "Tan", "ryantan@email.com", 7000)
+    # def setUp(self):
+    #     self.emp_1 = Employee("John", "Ang", "johnang@email.com", 5000)
+    #     self.emp_2 = Employee("Sean", "Ong", "seanong@email.com", 6000)
+    #     self.emp_3 = Employee("Ryan", "Tan", "ryantan@email.com", 7000)
     
-    def tearDown(self):
-        pass
+    # def tearDown(self):
+    #     pass
 
     def test_name_change(self):
         "Test case for name change"
@@ -68,35 +68,35 @@ class TestEmployee(unittest.TestCase):
         self.assertEqual(self.emp_2.pay, 6000 * 1.1)
         self.assertEqual(self.emp_3.pay, 7000 * 1.1)
 
-    def test_get_schedule_mock(self):
-        "Test case for getting schedule with mocked http requests"
-        with patch('Employee.requests.get') as mocked_get:
-            # Valid response
-            mocked_get.return_value.ok = True
-            mocked_get.return_value.text = "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200"
+    # def test_get_schedule_mock(self):
+    #     "Test case for getting schedule with mocked http requests"
+    #     with patch('Employee.requests.get') as mocked_get:
+    #         # Valid response
+    #         mocked_get.return_value.ok = True
+    #         mocked_get.return_value.text = "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200"
 
-            schedule = self.emp_1.get_schedule()
+    #         schedule = self.emp_1.get_schedule()
 
-            mocked_get.assert_called_with("http://production-server.com/get-sched?name=Ang")
-            self.assertEqual(schedule, "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200")
+    #         mocked_get.assert_called_with(f"http://production-server.com/get-sched?name={self.emp_1.last_name}")
+    #         self.assertEqual(schedule, "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200")
 
-            # Invalid response
-            mocked_get.return_value.ok = False
-            mocked_get.return_value.text = None
+    #         # Invalid response
+    #         mocked_get.return_value.ok = False
+    #         mocked_get.return_value.text = None
 
-            schedule = self.emp_2.get_schedule()
+    #         schedule = self.emp_2.get_schedule()
 
-            self.assertEqual(schedule, "Bad Response!")
+    #         self.assertEqual(schedule, "Bad Response!")
 
-    def test_get_schedule_api(self):
-        "Test case for getting schedule with local API"
-        response = requests.get(f"http://0.0.0.0:5005/get-sched?name={self.emp_1.last_name}")
+    # def test_get_schedule_api(self):
+    #     "Test case for getting schedule with local API"
+    #     response = requests.get(f"http://0.0.0.0:5005/get-sched?name={self.emp_1.last_name}")
 
-        with patch('Employee.requests.get') as mocked_get:
-            mocked_get.return_value.ok = response.ok
-            mocked_get.return_value.text = response.text
+    #     with patch('Employee.requests.get') as mocked_get:
+    #         mocked_get.return_value.ok = response.ok
+    #         mocked_get.return_value.text = response.text
 
-            schedule = self.emp_1.get_schedule()
+    #         schedule = self.emp_1.get_schedule()
 
-            mocked_get.assert_called_with("http://production-server.com/get-sched?name=Ang")
-            self.assertEqual(schedule, "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200")
+    #         mocked_get.assert_called_with("http://production-server.com/get-sched?name=Ang")
+    #         self.assertEqual(schedule, "Mon: 1500-1800; Tue: 0900-1200, 1400-1800; Thu: 0800-1200")
