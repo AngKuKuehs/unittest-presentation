@@ -12,6 +12,8 @@ Features:
 - Test runner
 - Stubs (through `unittest.mock`)
 
+Shortened URL: https://tinyurl.com/py-unittest 
+
 # Set-Up
 Clone the repository:
 ```bash
